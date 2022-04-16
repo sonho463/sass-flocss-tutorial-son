@@ -1,0 +1,82 @@
+@use "./../../foundation/variable" as v;
+
+.p-faq {
+  &__content {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  &__details {
+    margin-bottom: 5px;
+  }
+  &__details[open] {
+    .p-faq__summary {
+      background-color: v.$color-main-300;
+      &:after {
+        transform: rotate(45deg);
+      }
+    }
+    .p-faq__answer {
+      animation: fadeIn 0.5s ease;
+      -webkit-animation: fadeIn 0.5s ease;
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-10px);
+          -webkit-transform: translateY(-10px);
+          -moz-transform: translateY(-10px);
+          -ms-transform: translateY(-10px);
+          -o-transform: translateY(-10px);
+        }
+        100% {
+          opacity: 1;
+          transform: none;
+          -webkit-transform: none;
+          -moz-transform: none;
+          -ms-transform: none;
+          -o-transform: none;
+        }
+      }
+      -webkit-animation: fadeIn 0.5s ease;
+    }
+  }
+  &__summary {
+    position: relative;
+    display: block;
+    padding: 10px 20px;
+    font-weight: bold;
+    background-color: v.$color-main-200;
+    cursor: pointer;
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -ms-transition: 0.2s;
+    -o-transition: 0.2s;
+    &::-webkit-details-marker {
+      display: none;
+    }
+    &:hover {
+      background-color: v.$color-main-300;
+    }
+    &::after {
+      position: absolute;
+      font-family: "Font Awesome 5 Free";
+      content: "\f067";
+      font-weight: bold;
+      font-size: 20px;
+      color: v.$color-main;
+      margin: auto;
+      top: 16%;
+      right: 3%;
+      transition: 0.4s;
+      -webkit-transition: 0.4s;
+      -moz-transition: 0.4s;
+      -ms-transition: 0.4s;
+      -o-transition: 0.4s;
+    }
+  }
+  &__answer {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    background-color: v.$color-base;
+  }
+}
